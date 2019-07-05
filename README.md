@@ -1,57 +1,55 @@
 # ACER-F5-573G-Hackintosh
 
-# Português Brasil
-EFI Completa do ACER F5-573G, para fazer Hackintosh usando o macOS Mojave 10.14.3 (18D109)
+Complete EFI for ACER F5-573G, to make Hackintosh using macOS Mojave 10.14.3 (18D109)
 
-⚠️ Antes de editar, sugiro que abram a config.plist da pasta EFI, na guia SMBIOS gerem um novo serial no campo "Serial Number", verifique no site https://checkcoverage.apple.com/ se o serial é INVÁLIDO, isso mesmo INVÁLIDO, não pode ser de um Mac real. Copie o "Serial Number" para o campo "Board Serial Number" e adicione mais 5 caracteres aleatórios, copie esse "Board Serial Number" e vá na guia "Rt Variables" e cole no campo "MLB", Abaixo do campo "ROM" clique em "Generate" para gerar uma ROM válida, abra o terminal do macOS e digite "uuidgen" e copie o valor mostrado e cole em "SmUUID"na guia "SMBIOS", cole também na guia "System Parameters" no campo "Custom UUID" o valor copiado do terminal, feito isso, salve e reinicie.
+⚠️ Before editing, I suggest that you open the config.plist of the EFI folder, in the SMBIOS tab generate a new serial in the "Serial Number" field, check the site https://checkcoverage.apple.com/ if the serial is INVALID, that's it INVALID, it can not be from a real Mac. Copy the "Serial Number" to the "Board Serial Number" field and add 5 more random characters, copy this "Board Serial Number" and go to the "Rt Variables" tab and paste in the "MLB" field, click "Generate" to generate a valid ROM, open the macOS terminal and type "uuidgen" and copy the displayed value and paste in "SmUUID" in the "SMBIOS" tab, also paste in the "System Parameters" tab in the "Custom" UUID "the value copied from the terminal, done that, save and restart.
 
-A Kext que deve ser instalada no System/Library/Extensions com a ajuda do Kext Utility são:
+# IO80211Family
+**IO80211Family.kext** [download](https://drive.google.com/file/d/1ZF1iDlaztfGoGXGQTbGlu106oocgFXdB/view?usp=sharing)
 
-IO80211Family.kext
+The Kext that must be installed in the System/Library/Extensions with the help of the Kext Utility are:  
+After installing kext, open the terminal and run the commands:
 
-https://drive.google.com/file/d/1ZF1iDlaztfGoGXGQTbGlu106oocgFXdB/view?usp=sharing
-
-⚠️ Após instalar a kext, abra o terminal e execute o comandos:
-
+```
 sudo kextcache -i/
+```
 
 # Audio Headphone FIX
 
-Baixe o ALCJackEAPDFixP2HDA ✅
-https://drive.google.com/…/1oBUW2uCtfG2LN5YBz3lX8x6mJdnj9xHl
+1) Download the **ALCJackEAPDFixP2HDA** [from here](https://drive.google.com/file/d/1oBUW2uCtfG2LN5YBz3lX8x6mJdnj9xHl/view?usp=sharing)
+2) Extract the folder on the Desktop
+3) Open the terminal and type:
 
-2) Extraia a pasta na Mesa
-
-3) Abra o terminal e digite:
-
+```
 cd Desktop
-
 cd ALCJackEAPDFixP2HDA/
-
 sudo ./Install.sh
+```
 
-⚠️ Será solicitado a sua senha, digite e reinicie o computador para um resultado efetivo.
+You will be asked for your password, type and restart the computer for an effective result.
 
- Wi-Fi = ✅
-Teclado = ✅
-Trackpad = ✅
-USB 2.0 e 3.0 = ✅
-USB-C = ✅
-Porta VGA = ✅
-Porta HDMI = ✅
-Áudio com AppleALC = ✅
-Microfone = ✅
-Fone de Ouvído = ✅
-Aceleração de Vídeo do Intel HD Graphics 620 = ✅
-Porta de Rede Ethernet = ✅
-Gerenciamento de Energia na Bateria = ✅
-Ajuste de Brilho pelo painel = ✅
-Ajuste de Brilho pelo teclado (FN+Left, FN+Right) = ✅
+# Status
 
-Funções que contém bugs ou não funcionam por não ter suporte:
+| Device                                          | Status |
+| ----------------------------------------------- |:------:|
+| Wi-Fi                                              | ✅ |
+| Keyboard                                           | ✅ |
+| Trackpad                                           | ✅ |
+| USB 2.0 and 3.0                                    | ✅ |
+| USB-C                                              | ✅ |
+| Port VGA                                           | ✅ |
+| Port HDMI                                          | ✅ |
+| Audio with AppleALC                                | ✅ |
+| Microphone                                         | ✅ |
+| Earphone                                           | ✅ |
+| Intel HD Graphics 620 Video Acceleration           | ✅ |
+| Porta de Rede Ethernet                             | ✅ |
+| Battery Power Management                           | ✅ |
+| Brightness adjustment by panel                     | ✅ |
+| Keyboard Brightness Adjustment (FN+Left, FN Right) | ✅ |
+| NVIDIA GeForce 940MX                    | ❌ No support |
+| Card reader                             | ❌ No support |
+| *Bluetooth                                         | ⚠️ |
 
-NVIDIA GeForce 940MX = Sem suporte ❌
-Leitor de cartão = Sem suporte ❌
-*Bluetooth = Funcionamento parcial ⚠️
 
-⚠️ OBS: O Bluetooth para mim, só funciona se eu entrar no Windows 10, ativar, reiniciar a máquina e bootar no macOS. Segundo o Rehabman, é um problema de gerenciamento de firmware do próprio notebook, porém, recomenda-se o uso de um dongle BT compatível 100% para evitar conflitos ou estresse do usuário.
+*NOTE: Bluetooth for me, only works if I go into Windows 10, activate, reboot the machine and boot into macOS. According to Rehabman, it is a problem of managing the firmware of the notebook itself, however, it is recommended to use a 100% compatible BT dongle to avoid conflicts or stress of the user.
